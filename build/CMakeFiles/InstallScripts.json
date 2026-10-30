@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/LucyEngine/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

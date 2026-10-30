@@ -1,0 +1,25 @@
+# Build files
+/build/
+/out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code personal settings
+.vscode/*
+!.vscode/c_cpp_properties.json
+!.vscode/extensions.json
+
+# Compiled files
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+
+# OS files
+.DS_Store
+Thumbs.db
