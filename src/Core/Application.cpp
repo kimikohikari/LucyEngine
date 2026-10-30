@@ -1,5 +1,6 @@
 #include "Application.h"
 #include <GLFW/glfw3.h>
+#include "../Renderer/VulkanContext.h"
 #include <iostream>
 
 void Application::Run()
@@ -27,10 +28,36 @@ void Application::Run()
 
     std::cout << "Lucy Engine window created\n";
 
+    VulkanContext vulkanContext;
+
+    if (!vulkanContext.Initialize())
+    {
+        std::cerr << "Failed to initialize Vulkan.\n";
+
+        glfwDestroyWindow(window);
+        glfwTerminate();
+
+        return;
+    }
+
+    if (!vulkanContext.SelectPhysicalDevice())
+    {
+        std::cerr << "Failed to select physical device.\n";
+        
+        vulkanContext.Shutdown();
+
+        glfwDestroyWindow(window);
+        glfwTerminate();
+
+        return;
+    }
+
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
     }
+
+    vulkanContext.Shutdown();
 
     glfwDestroyWindow(window);
     glfwTerminate();

@@ -9,6 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(LucyEngine 
     src/main.cpp 
     src/Core/Application.cpp
+    src/Renderer/VulkanContext.cpp
 )
 
 #GLFW connection
